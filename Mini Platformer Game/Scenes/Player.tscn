@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Player/alienBlue_stand.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Player/alienBlue_jump.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Player/alienBlue_walk1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Player/alienBlue_walk2.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Stand",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 7.0
+} ]
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Walk"
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 14.415, 47.2099, -22.7552, 47.7647, -25.1198, 39.7999, -32.1864, 25.5735, -27.7482, 15.8649, -29.6899, 5.32405, -36.6247, -8.26803, -36.6247, -21.5827, -28.1849, -39.2104, -14.903, -47.7245, -2.30221, -49.0867, 15.7476, -46.7028, 23.921, -39.8916, 33.7973, -21.5012, 35.1596, -3.1109, 26.9861, 11.1927, 23.2399, 17.6634, 28.3483, 25.4963, 28.6889, 32.3075, 25.6238, 38.7782, 17.7909, 39.7999 )
+
